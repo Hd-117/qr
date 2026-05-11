@@ -90,6 +90,14 @@
 
   <div id="reader"></div>
 
+<input list="lista-modulos" id="modulos" name="modulos" placeholder="Selecciona el modulo">
+<datalist id="lista-modulos">
+  <option value="CONTROL">
+  <option value="PEDIATRIA">
+  <option value="MEDICINA GENERAL">
+</datalist>
+
+  
   <div id="status"></div>
 
   <script>
@@ -100,18 +108,6 @@
 
     const API_URL =
       "https://script.google.com/macros/s/AKfycbw2Z1Co0_gVuXAipOpZN_xRGkGZWMN_baT3J8r6r7d4SGTTUzIXJTOW24lYxl3DI-E7Gg/exec";
-
-    let API_KEY = localStorage.getItem("apiKey");
-
-    if (!API_KEY) {
-
-    API_KEY = prompt("Ingresa API KEY");
-
-    localStorage.setItem(
-        "apiKey",
-        API_KEY
-    );
-    }
 
     let scanning = true;
 
@@ -129,7 +125,7 @@
                 numeroPaciente,
 
               apiKey:
-                API_KEY
+                document.getElementById("modulos").value
             })
           }
         );
